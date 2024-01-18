@@ -1,0 +1,77 @@
+/* General */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+/* Contenedor se las páginas */
+.container{
+    width: 100%;
+    min-height: 100vh;
+    background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(images/bg.jpg);
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Página de inicio */
+.inicio{
+    width: 100%;
+    min-height: 100vh;
+    background-image: linear-gradient(rgba(56, 35, 35, 0.5),rgba(0,0,0,0.5)),url(images/bg.jpg);
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.inicio h1{
+    color: #fff;
+    font-size: 50px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+.inicio li{
+    list-style: none;
+    margin: 25px;
+    text-align: left;
+}
+.inicio a{
+    margin: 10px;
+    padding: 10px 20px;
+    background: #fff;
+    color: #000;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: 500;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* Formulario login */
+.login-{
+    display: flex;
+    flex-direction: column;
+}
+form{
+    width: 400px;
+    background: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+}
+form input{
+    height: 40px;
+    width: 100%;
+    border: 1px solid silver;
+    border-radius: 5px;
+    margin: 10px 0 20px 0;
+    padding: 0 10px;
+    outline: none;
+}

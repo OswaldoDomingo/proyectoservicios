@@ -1,3 +1,8 @@
+# Proyecto MVC servicios para desarrollo web servicios
+
+## Pasos del proyecto MVC
+Tener una entrada index.html desde donde se irán haciendo todas las peticiones al los controladores y desde ahí se cargarán las vistas.
+
 ## Configuración de VirtualHost
 ```apache
 <VirtualHost *:80>
@@ -19,5 +24,5 @@
     </Directory>
 </VirtualHost>
 ```
-## La idea del proyecto
-Tener una entrada index.html desde donse se irán haciendo todas las peticiones al los controladores y desde ahí se cargarán las vistas.
+## Directorio view/parciales
+En este directorio dejo las partes de código como header y footer que se repiten en muchas páginas

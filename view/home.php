@@ -1,15 +1,14 @@
-
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $title ?></title>
-</head>
-<body>
+<?php
+require('parciales/header.php');
+?>
+<div class="inicio">
     <h1>Estas en <?php echo $title ?></h1>
-    <a href="">Iniciar sesión</a>
-    <a href="">Registrarse</a>
-    <a href="">Ver servicios como invitado</a>
-</body>
-</html>
+    <ul>
+        <li><a href="index.php?page=login">Iniciar sesión</a></li>
+        <li><a href="index.php?page=registro">Registrarse</a></li>
+        <li><a href="index.php?page=listado">Ver servicios como invitado</a></li>
+    </ul>
+</div>
+<?php
+require('parciales/footer.php');
+?>
