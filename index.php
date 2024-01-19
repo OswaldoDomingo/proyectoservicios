@@ -2,6 +2,13 @@
 // Se inicia la sesión para poder acceder a las variables de sesión y poder cerrarla cuando se desee cerrar sesión 
 //o cuando se cierre el navegador (por defecto).
 session_start();
+// Se incluye el fichero de configuración. 
+require('utils/Config.php');
+
+// Se incluye el modelo de la base de datos que se va a utilizar.
+require ('model/cModeloSingelton.php');
+$modelo = ModeloSingelton::getInstance();
+$conexion = $modelo->getConexion();
 
 /*
 Si el usuario todavia no está logueado lo identificamos como visitante, por ejemplo de la siguiente manera: $_SESSION['nivel_usuario']=0

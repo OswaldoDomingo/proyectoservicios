@@ -1,6 +1,4 @@
 <?php
-$title = 'Home';
-
+$title = Config::$title = 'Inicio';
 require('view/home.php');
-
 ?>

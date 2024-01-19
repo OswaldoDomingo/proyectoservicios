@@ -1,6 +1,7 @@
 <?php
 //controller/cLogin.php
-$title='Login';
+$title = Config::$title = 'Login';
+
 
 require('view/vLogin.php');
 ?>
