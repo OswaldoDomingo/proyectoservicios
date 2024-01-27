@@ -68,5 +68,4 @@ if (method_exists($controlador['controller'], $controlador['action'])) {
         '</i> no existe</h1></body></html>';
 }
 //FIN COPIADO DE HEIKE
-echo "Pasa algo";
 ?>

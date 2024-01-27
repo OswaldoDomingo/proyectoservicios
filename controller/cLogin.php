@@ -1,6 +1,6 @@
 <?php
 class Login{
-    public function __construct(){
+    public function login(){
         //controller/cLogin.php
         $title = Config::$title = 'Login';
 
@@ -8,3 +8,4 @@ class Login{
 
     }
 }
+?>
