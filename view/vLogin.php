@@ -11,7 +11,7 @@ require('parciales/header.php');
         <input type="submit" value="Iniciar sesión">
     </form>
     <a class="ancla" href="<?= BASE_URL ?>index.php?page=inicio">Volver al inicio</a>
-    <a class="ancla" href="../index.php?page=registro">Registrarse</a>
+    <a class="ancla" href="<?= BASE_URL ?>index.php?page=registro">Registrarse</a>
 </div>
 
 <?php
