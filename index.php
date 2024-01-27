@@ -1,4 +1,5 @@
 <?php
+//index.php
 // Se inicia la sesión para poder acceder a las variables de sesión y poder cerrarla cuando se desee cerrar sesión 
 //o cuando se cierre el navegador (por defecto).
 session_start();

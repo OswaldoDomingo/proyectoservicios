@@ -1,11 +1,4 @@
 ﻿<?php
-
-/****
- * Librería con funciones generales y de validación
- * @author Heike Bonilla
- * 
- */
-
 function cabecera($titulo = "") // el archivo actual
 {
 ?>
