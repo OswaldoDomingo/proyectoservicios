@@ -9,6 +9,9 @@ require('parciales/header.php');
         <label for="password">Contraseña</label>
         <input type="password" name="password" id="password" required>
         <input type="submit" value="Iniciar sesión">
+    </form>
+    <a class="ancla" href="../index.php?page=inicio">Volver al inicio</a>
+    <a class="ancla" href="../index.php?page=registro">Registrarse</a>
 </div>
 
 <?php

@@ -1,7 +1,11 @@
 <?php
-//controller/cLogin.php
-$title = Config::$title = 'Login';
+class Login{
+    public function login(){
+        //controller/cLogin.php
+        $title = Config::$title = 'Login';
 
+        require('view/vLogin.php');
 
-require('view/vLogin.php');
+    }
+}
 ?>
