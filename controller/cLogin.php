@@ -1,6 +1,6 @@
 <?php
 class Login{
-    public function login(){
+    public function __construct(){
         //controller/cLogin.php
         $title = Config::$title = 'Login';
 

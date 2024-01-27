@@ -1,6 +1,6 @@
 <?php
 class Registro{
-    function registro(){
+    public function __construct(){
         //controller/cLogin.php
         $title = Config::$title = 'Registro';
         
