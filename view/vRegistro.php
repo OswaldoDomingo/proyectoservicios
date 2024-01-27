@@ -22,8 +22,10 @@ require('parciales/header.php');
         <label for="idioma">Idiomas</label>
         <!-- Crear un foreach con los idionmas que incluyamos en un array -->
         <label for="descripcion">Descripción personal</label>
-        <textarea name="descripcion" id="descripcion" cols="30" rows="10" placeholder="Escriba algo sobre tí" ></textarea>
+        <textarea name="descripcion" id="descripcion" cols="30" rows="10" placeholder="Escriba algo sobre tí"></textarea>
         <input type="submit" value="Registrarse" name="btnRegistro">
+    </form>
+    <a class="ancla" href="<?= BASE_URL ?>index.php?page=inicio">Volver al inicio</a>
 </div>
 
 <?php
