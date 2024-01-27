@@ -69,4 +69,4 @@ if (method_exists($controlador['controller'], $controlador['action'])) {
 }
 //FIN COPIADO DE HEIKE
 echo "Pasa algo";
-?>xx
+?>

@@ -9,5 +9,3 @@ if ($_SERVER['HTTP_HOST'] === 'localhost' || $_SERVER['REMOTE_ADDR'] === '127.0.
 }
 
 // Puedes añadir aquí más rutas o URLs relacionadas, como rutas a directorios específicos
-
-?>

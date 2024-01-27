@@ -387,4 +387,4 @@ function crypt_blowfish($password) {
     
     return $pass;
     }
-    ?>
+    
