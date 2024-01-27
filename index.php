@@ -8,6 +8,8 @@ require_once ( __DIR__ . '/../proyectoservicios/controller/home.php');
 require_once ( __DIR__ . '/../proyectoservicios/controller/cLogin.php');
 require_once ( __DIR__ . '/../proyectoservicios/controller/cRegistro.php');
 require_once ( __DIR__ . '/../proyectoservicios/utils/bGeneral.php');
+require_once ( __DIR__ . '/../proyectoservicios/utils/rutas.php');
+
 
 // Se incluye el modelo de la base de datos que se va a utilizar.
 require ('model/cModeloSingelton.php');

@@ -1,5 +1,6 @@
 <?php
 require('parciales/header.php');
+
 ?>
 <div class="inicio">
     <h1>Estas en <?php echo $title ?></h1>
