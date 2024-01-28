@@ -8,6 +8,7 @@ require_once ( __DIR__ . '/../proyectoservicios/utils/Config.php');
 require_once ( __DIR__ . '/../proyectoservicios/controller/home.php');
 require_once ( __DIR__ . '/../proyectoservicios/controller/cLogin.php');
 require_once ( __DIR__ . '/../proyectoservicios/controller/cRegistro.php');
+require_once ( __DIR__ . '/../proyectoservicios/controller/cListado.php');
 require_once ( __DIR__ . '/../proyectoservicios/utils/bGeneral.php');
 require_once ( __DIR__ . '/../proyectoservicios/utils/rutas.php');
 
@@ -34,6 +35,7 @@ $map = array(
     'inicio' => array('controller' => 'Home', 'action' => 'inicio', 'nivel_usuario'=>0),
     'registro' => array('controller' => 'Registro', 'action' => 'registro', 'nivel_usuario'=>0),
     'login' => array('controller' => 'Login', 'action' => 'login', 'nivel_usuario'=>0),
+    'listado' => array('controller' => 'Listado', 'action' => 'listado', 'nivel_usuario'=>0),
 );
 
 
