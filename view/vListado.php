@@ -14,6 +14,7 @@ require('parciales/header.php');
     <?php endforeach; ?>
 <?php else : ?>
     <p>No hay servicios disponibles.</p>
+    <a class="ancla" href="<?= BASE_URL ?>index.php?page=inicio">Volver al inicio</a>
 <?php endif; ?>
 <?php
 require('parciales/footer.php');
