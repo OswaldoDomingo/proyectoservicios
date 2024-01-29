@@ -48,6 +48,40 @@ class ModeloSingelton
 
         return $servicios;
     }
+
+    public function registrarUsuario($nombre, $email, $password, $fechaNacimiento, $fotoPerfil, $descripcion, $idioma)
+    {
+        // Preparar consulta SQL
+        $sql = "INSERT INTO usuario (nombre, email, pass, f_nacimiento, foto_perfil, descripción, idioma) VALUES (?, ?, ?, ?, ?, ?, ?)";
+
+        try {
+            $stmt = $this->conexion->prepare($sql);
+            $stmt->execute([$nombre, $email, crypt_blowfish($password), $fechaNacimiento, $fotoPerfil, $descripcion, $idioma]);
+            return true;
+        } catch (PDOException $e) {
+            // Manejar excepción
+            error_log("Error en la inserción SQL: " . $e->getMessage());
+            return false;
+        }
+    }
+
+    public function obtenerIdiomas()
+    {
+        $idiomas = [];
+        $sql = "SELECT id_idioma, idioma FROM idioma";
+
+        try {
+            $stmt = $this->conexion->query($sql);
+            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                $idiomas[] = $row;
+            }
+        } catch (PDOException $e) {
+            // Manejar excepción
+            error_log("Error en la consulta SQL: " . $e->getMessage());
+        }
+
+        return $idiomas;
+    }
 }
 
 // Ejemplo de uso:

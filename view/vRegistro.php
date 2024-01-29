@@ -20,6 +20,11 @@ require('parciales/header.php');
         <input type="file" name="fotoPerfil" id="fotoPerfil">
 
         <label for="idioma">Idiomas</label>
+        <?php foreach ($idiomas as $idioma) : ?>
+            <input type="checkbox" name="idiomas[]" value="<?= $idioma['id_idioma'] ?>" id="idioma_<?= $idioma['id_idioma'] ?>">
+            <label for="idioma_<?= $idioma['id_idioma'] ?>"><?= $idioma['idioma'] ?></label><br>
+        <?php endforeach; ?>
+
         <!-- Crear un foreach con los idionmas que incluyamos en un array -->
         <label for="descripcion">Descripción personal</label>
         <textarea name="descripcion" id="descripcion" cols="30" rows="10" placeholder="Escriba algo sobre tí"></textarea>

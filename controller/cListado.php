@@ -1,4 +1,5 @@
 <?php
+//Listar los registros de la tabla servicios
 class Listado {
     public function listado() {
         $modelo = ModeloSingelton::getInstance();
