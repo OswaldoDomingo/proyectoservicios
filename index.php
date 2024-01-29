@@ -18,6 +18,12 @@ require ('model/cModeloSingelton.php');
 $modelo = ModeloSingelton::getInstance();
 $conexion = $modelo->getConexion();
 
+// Obtener los idiomas y pasarlos al controlador Registro
+$idiomas = $modelo->obtenerIdiomas();
+$controladorRegistro = new Registro($idiomas);
+$controladorRegistro->registro();
+
+
 /*
 Si el usuario todavia no está logueado lo identificamos como visitante, por ejemplo de la siguiente manera: $_SESSION['nivel_usuario']=0
 */

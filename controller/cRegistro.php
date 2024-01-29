@@ -1,10 +1,35 @@
 <?php
 class Registro
 {
+
     public function registro()
     {
         //controller/cLogin.php
         $title = Config::$title = 'Registro';
+
+        // Obtener la instancia del modelo
+        $modelo = ModeloSingelton::getInstance();
+
+        // Obtener los idiomas disponibles
+        $idiomas = $modelo->obtenerIdiomas();
+
+        // Agrega esto para depurar
+        // echo "<pre>";
+        // print_r($idiomas);
+        // echo "</pre>";
+
+
+        // Inicializar array de errores
+        $errores = [];
+        $nombre = '';
+        $email = '';
+        $password = '';
+        $fechaNacimiento = '';
+        $fotoPerfil = '';
+        $descripcion = '';
+        $idioma = '';
+        $seleccionIdiomas = [];
+
         // Verificar si el formulario ha sido enviado
         if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['btnRegistro'])) {
             // Sanitización y validación
@@ -16,8 +41,6 @@ class Registro
             $descripcion = recoge("descripcion");
             $idioma = recoge("idioma");
 
-            // Inicializar array de errores
-            $errores = [];
 
             // Validaciones
             // Validación del nombre
@@ -84,9 +107,9 @@ class Registro
                 // Si hay un error en la carga del archivo, se añadirá automáticamente al array $errores
                 // No es necesario añadir un mensaje de error adicional aquí, ya que cFile se encarga de ello
             }
-            
+
             // Validación de la descripción
-                        /*
+            /*
              Sanitización: La función recoge sanitiza el valor del campo 'descripción', eliminando espacios innecesarios y tags HTML.
              Validación: Se llama a cTexto para validar la descripción. Los parámetros incluyen la longitud máxima y mínima, 
              si se permiten espacios, y si la validación es sensible a mayúsculas.
@@ -108,51 +131,49 @@ class Registro
 
             // En este punto, si $errores está vacío, la descripción ha pasado la validación.
             // Si hay errores, se deben mostrar al usuario.
-            $seleccionIdiomas =[]; // Array para almacenar los idiomas seleccionados
-            $idiomasDisponibles = []; // Array para almacenar los idiomas disponibles
-             // Valida las selecciones de idiomas
+            //$seleccionIdiomas =[]; // Array para almacenar los idiomas seleccionados
+            // Valida las selecciones de idiomas
             // 'cCheck' comprueba si los valores seleccionados están en los idiomas disponibles
-                if (!cCheck($seleccionIdiomas, 'idiomas', $errores, array_column($idiomasDisponibles, 'id_idioma'))) {
-                // Si hay errores, los muestra al usuario
-            foreach ($errores as $error) {
-                echo "<p>Error: $error</p>";
-            }
-        } else {
-            // Si no hay errores, procesa los datos
-            // Aquí podrías llamar a una función del modelo para guardar las selecciones en la base de datos
-            // Por ejemplo, $modelo->guardarSeleccionesIdiomas($seleccionIdiomas);
 
-            // Muestra un mensaje de éxito o redirige a otra página
-            echo "<p>Selección de idiomas guardada correctamente.</p>";
-    }
-}
-            
-
-
-
-            if (count($errores) == 0) {
-                // No hay errores en la validación, podemos proceder con el registro
-                // Hashear la contraseña
-                $passwordHash = hashPassword($password);
-
-                // Todos los datos son válidos, proceder con el registro
-                $modelo = ModeloSingelton::getInstance();
-                $resultado = $modelo->registrarUsuario($nombre, $email, $passwordHash, $fechaNacimiento, $fotoPerfil, $descripcion, $idioma);
-
-                if ($resultado) {
-                    // Registro exitoso
-                    $mensajeExito = "Usuario registrado con éxito.";
-                } else {
-                    // Error en el registro
-                    $mensajeError = "Error al registrar el usuario.";
+            if (!cCheck($seleccionIdiomas, 'idiomas', $errores, array_column($this->idiomas, 'id_idioma'))) {
+                foreach ($errores as $error) {
+                    echo "<p>Error: $error</p>";
                 }
             } else {
-                // Hay errores en la validación
-                $mensajeError = "Se encontraron errores en el formulario.";
+                echo "<p>Selección de idiomas guardada correctamente.</p>";
             }
-        
+        }
+
+
+
+
+        if (count($errores) == 0) {
+            // No hay errores en la validación, podemos proceder con el registro
+            // Hashear la contraseña
+            $passwordHash = hashPassword($password);
+
+            // Todos los datos son válidos, proceder con el registro
+            $modelo = ModeloSingelton::getInstance();
+            //llama al método obtenerIdiomas() para obtener los idiomas disponibles desde la base de datos.
+            $idiomasDisponibles = $modelo->obtenerIdiomas();
+
+            $resultado = $modelo->registrarUsuario($nombre, $email, $passwordHash, $fechaNacimiento, $fotoPerfil, $descripcion, $idioma);
+
+            if ($resultado) {
+                // Registro exitoso
+                $mensajeExito = "Usuario registrado con éxito.";
+            } else {
+                // Error en el registro
+                $mensajeError = "Error al registrar el usuario.";
+            }
+        } else {
+            // Hay errores en la validación$idiomasDisponibles = []; // Array para almacenar los idiomas disponibles
+
+            $mensajeError = "Se encontraron errores en el formulario.";
+        }
+
 
         // Pasar errores y mensajes a la vista
-        require('view/vRegistro.php');
+        require_once('view/vRegistro.php');
     }
 }
