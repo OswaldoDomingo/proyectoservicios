@@ -3,16 +3,13 @@
 // Se inicia la sesión para poder acceder a las variables de sesión y poder cerrarla cuando se desee cerrar sesión 
 //o cuando se cierre el navegador (por defecto).
 session_start();
-// Ruta base para los archivos de configuración
-$basePath = __DIR__ . '/../proyectoservicios/utils/';
-
-// Determinar el entorno y seleccionar el archivo de configuración correspondiente
-if (getenv('APPLICATION_ENV') === 'production') {
-    // En producción, usar configServidor.php
-    $configFilePath = $basePath . 'configServidor.php';
+// Detectar si se está ejecutando en local
+if ($_SERVER['SERVER_NAME'] == 'localhost' || $_SERVER['REMOTE_ADDR'] == '127.0.0.1') {
+    // Entorno local
+    $configFilePath = __DIR__ . '/../proyectoservicios/utils/config.php';
 } else {
-    // En cualquier otro caso (incluyendo el entorno local), usar config.php
-    $configFilePath = $basePath . 'config.php';
+    // Asumir que cualquier otro caso es producción
+    $configFilePath = __DIR__ . '/../proyectoservicios/utils/ConfigServer.php';
 }
 
 // Verificar si el archivo de configuración existe
@@ -22,6 +19,7 @@ if (!file_exists($configFilePath)) {
 
 // Cargar el archivo de configuración
 require_once($configFilePath);
+
 
 // Se incluye el fichero de configuración. 
 // require_once ( __DIR__ . '/../proyectoservicios/utils/Config.php');
