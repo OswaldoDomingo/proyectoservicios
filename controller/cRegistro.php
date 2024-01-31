@@ -4,21 +4,8 @@ class Registro
 
     public function registro()
     {
-        //controller/cLogin.php
-        $title = Config::$title = 'Registro';
-
-        // Obtener la instancia del modelo
-        $modelo = ModeloSingelton::getInstance();
-
-        // Obtener los idiomas disponibles
-        $idiomas = $modelo->obtenerIdiomas();
-
-        // Agrega esto para depurar
-        // echo "<pre>";
-        // print_r($idiomas);
-        // echo "</pre>";
-
-
+        require_once('model/cModeloSingelton.php');
+        
         // Inicializar array de errores
         $errores = [];
         $nombre = '';
@@ -29,6 +16,24 @@ class Registro
         $descripcion = '';
         $idioma = '';
         $seleccionIdiomas = [];
+
+        // Se incluye el modelo de la base de datos que se va a utilizar.
+        $modelo = ModeloSingelton::getInstance();
+        $conexion = $modelo->getConexion();
+
+        // Obtener los idiomas y pasarlos al controlador Registro
+        $idiomas = $modelo->obtenerIdiomas();
+        
+        //controller/cLogin.php
+        $title = Config::$title = 'Registro';
+
+        //Agrega esto para depurar
+        // echo "<pre>";
+        // print_r($idiomas);
+        // echo "</pre>";
+
+
+
 
         // Verificar si el formulario ha sido enviado
         if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['btnRegistro'])) {

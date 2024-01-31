@@ -13,15 +13,7 @@ require_once ( __DIR__ . '/../proyectoservicios/utils/bGeneral.php');
 require_once ( __DIR__ . '/../proyectoservicios/utils/rutas.php');
 
 
-// Se incluye el modelo de la base de datos que se va a utilizar.
-require ('model/cModeloSingelton.php');
-$modelo = ModeloSingelton::getInstance();
-$conexion = $modelo->getConexion();
 
-// Obtener los idiomas y pasarlos al controlador Registro
-$idiomas = $modelo->obtenerIdiomas();
-$controladorRegistro = new Registro($idiomas);
-$controladorRegistro->registro();
 
 
 /*
