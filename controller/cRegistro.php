@@ -19,10 +19,9 @@ class Registro
 
         // Se incluye el modelo de la base de datos que se va a utilizar.
         $modelo = ModeloSingelton::getInstance();
-        $conexion = $modelo->getConexion();
 
         // Obtener los idiomas y pasarlos al controlador Registro
-        $idiomas = $modelo->obtenerIdiomas();
+        $modelo->obtenerIdiomas();
         
         //controller/cLogin.php
         $title = Config::$title = 'Registro';
@@ -140,7 +139,7 @@ class Registro
             // Valida las selecciones de idiomas
             // 'cCheck' comprueba si los valores seleccionados están en los idiomas disponibles
 
-            if (!cCheck($seleccionIdiomas, 'idiomas', $errores, array_column($this->idiomas, 'id_idioma'))) {
+            if (!cCheck($seleccionIdiomas, 'idiomas', $errores, array_column($modelo->obtenerIdiomas(), 'id_idioma'))) {
                 foreach ($errores as $error) {
                     echo "<p>Error: $error</p>";
                 }
