@@ -1,4 +1,4 @@
 /utils/Config.php
 /utils/ConfigServer.php
-/pubic/usuarios/img/*
-/pubic/servicios/img/*
+/pubic/img/usuarios/*
+/pubic/img/servicios/*
