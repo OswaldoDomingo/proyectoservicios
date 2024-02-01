@@ -27,9 +27,9 @@ class Registro
         $title = Config::$title = 'Registro';
 
         //Agrega esto para depurar
-        // echo "<pre>";
-        // print_r($idiomas);
-        // echo "</pre>";
+        echo "<pre>";
+        print_r($idiomas);
+        echo "</pre>";
 
 
 
