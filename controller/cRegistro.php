@@ -21,15 +21,15 @@ class Registro
         $modelo = ModeloSingelton::getInstance();
 
         // Obtener los idiomas y pasarlos al controlador Registro
-        $modelo->obtenerIdiomas();
+        $idiomas = $modelo->obtenerIdiomas();
         
         //controller/cLogin.php
         $title = Config::$title = 'Registro';
 
         //Agrega esto para depurar
-        echo "<pre>";
-        print_r($idiomas);
-        echo "</pre>";
+        // echo "<pre>";
+        // print_r($idiomas);
+        // echo "</pre>";
 
 
 
@@ -157,9 +157,9 @@ class Registro
             $passwordHash = hashPassword($password);
 
             // Todos los datos son válidos, proceder con el registro
-            $modelo = ModeloSingelton::getInstance();
+            // $modelo = ModeloSingelton::getInstance();
             //llama al método obtenerIdiomas() para obtener los idiomas disponibles desde la base de datos.
-            $idiomasDisponibles = $modelo->obtenerIdiomas();
+            // $idiomasDisponibles = $modelo->obtenerIdiomas();
 
             $resultado = $modelo->registrarUsuario($nombre, $email, $passwordHash, $fechaNacimiento, $fotoPerfil, $descripcion, $idioma);
 

@@ -160,16 +160,31 @@ function recogeArray(string $var): array
  */
 
 
-function cTexto(string $text, string $campo, array &$errores, int $max = 30, int $min = 1, bool $espacios = TRUE, bool $case = TRUE): bool
-{
-    $case = ($case === TRUE) ? "i" : "";
-    $espacios = ($espacios === TRUE) ? " " : "";
-    if ((preg_match("/^[a-zñ$espacios]{" . $min . "," . $max . "}$/u$case", sinTildes($text)))) {
+// function cTexto(string $text, string $campo, array &$errores, int $max = 30, int $min = 1, bool $espacios = TRUE, bool $case = TRUE): bool
+// {
+//     $case = ($case === TRUE) ? "i" : "";
+//     $espacios = ($espacios === TRUE) ? " " : "";
+//     if ((preg_match("/^[a-zñ$espacios]{" . $min . "," . $max . "}$/u$case", sinTildes($text)))) {
+//         return true;
+//     }
+//     $errores[$campo] = "Error en el campo $campo";
+//     echo "Texto:" . $text . "<br> Campo: " . $campo . "<br> Max: " . $max . "<br> Min: " . $min . "<br> Espacios: " . $espacios . "<br> Case: " . $case . "<br>";
+//     return false;
+// }
+function cTexto(string $text, string $campo, array &$errores, int $max = 300, int $min = 10, bool $espacios = TRUE, bool $case = TRUE): bool {
+    // Ajustar la expresión regular para incluir mayúsculas, caracteres acentuados en mayúsculas y caracteres comunes como comas y puntos.
+    $pattern = "/^[a-zñáéíóúüA-ZÑÁÉÍÓÚÜ,.\\s]{" . $min . "," . $max . "}$/iu";
+
+    if (preg_match($pattern, $text)) {
         return true;
+    } else {
+        $errores[$campo] = "Error en el campo $campo";
+        echo "Error validando: " . htmlspecialchars($text) . "<br>Con pattern: " . $pattern . "<br>";
+        return false;
     }
-    $errores[$campo] = "Error en el campo $campo";
-    return false;
 }
+
+
 
 //***** Funciones de validación **** //
 
