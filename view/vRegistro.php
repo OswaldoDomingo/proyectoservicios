@@ -3,7 +3,7 @@ require('parciales/header.php');
 ?>
 <div class="login-">
     <h1>Estas en <?php echo $title ?></h1>
-    <form action="index.php?page=registro" method="post">
+    <form action="index.php?page=registro" method="post" enctype="multipart/form-data">
         <label for="nombre">Nombre completo</label>
         <input type="text" name="nombre" id="nombre" required placeholder="Tu nombre">
 
